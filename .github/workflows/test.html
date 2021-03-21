@@ -1,0 +1,22 @@
+<html>
+<script>
+var distance_ennemie = 50;
+var distance_artillerie = 75;
+
+var azimuth_ennemie = 240;
+var azimuth_artillerie = 339;
+
+var cb = distance_ennemie;
+var ab = distance_artillerie;
+var b = azimuth_ennemie - azimuth_artillerie;
+
+var ac = Math.sqrt(Math.pow(cb,2) + Math.pow(ab,2) - 2 * cb * ab * Math.cos(b * Math.PI / 180));
+var a = Math.acos((Math.pow(ab,2) + Math.pow(ac,2) - Math.pow(cb,2)) / (2 * ab * ac)) * (180 / Math.PI);
+var c = Math.acos((Math.pow(cb,2) + Math.pow(ac,2) - Math.pow(ab,2)) / (2 * cb * ac)) * (180 / Math.PI);
+
+var azimuth = azimuth_artillerie - 180 - a;
+if (azimuth < 0) azimuth += 360;
+
+console.log("Distance CB: " + cb.toFixed(2) + " distance AB: " + ab.toFixed(2) + " distance AC: " + ac.toFixed(2) + " | Angle A: " + a.toFixed(2) + " angle B: " + b.toFixed(2) + " angle C: " + c.toFixed(2) + 
+</script>
+</html>
